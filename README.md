@@ -27,8 +27,8 @@ The Weather Dashboard is a web application built using Next.js, TypeScript, and 
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
-   cd <repository_directory>
+   git clone https://github.com/Khushal251/weather-dashboard.git
+   cd weather-dashboard
    ```
 2. Install dependencies:
    ```bash
