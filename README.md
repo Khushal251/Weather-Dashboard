@@ -1,108 +1,61 @@
 # Weather Dashboard
 
-A responsive weather dashboard that displays current weather conditions and a 5-day forecast for any searched city. It also features functionality to add and manage favorite cities using a JSON server.
+![Weather Dashboard Screenshot](UI.PNG)
 
-![Weather Dashboard UI](UI.PNG)
+## Description
+The Weather Dashboard is a web application built using Next.js, TypeScript, and TailwindCSS. It allows users to search for the current weather and a 5-day forecast for any city. Users can also add cities to a list of favorites, manage them, and toggle between Celsius and Fahrenheit for temperature display. A JSON server is used to store and retrieve favorite cities, with full CRUD support.
 
 ## Features
-
-- Search for a city's current weather and 5-day forecast.
-- Add cities to a favorites list.
-- View weather information for favorite cities.
+- Search for a city to view the current weather and 5-day forecast.
+- Add cities to a list of favorites.
 - Remove cities from the favorites list.
+- View weather details for favorite cities.
 - Toggle between Celsius and Fahrenheit.
-- Automatically save the last searched city using local storage.
+- Persist the last searched city using local storage.
 
-## Tech Stack
-
-- **Framework**: Next.js
-- **Language**: TypeScript
-- **Styling**: TailwindCSS
-- **API**: [OpenWeatherMap API](https://openweathermap.org/api)
-- **Data Storage**: JSON Server
+## Technologies Used
+- **Frontend:** Next.js, TypeScript, TailwindCSS
+- **Backend:** JSON Server
+- **API:** OpenWeatherMap API
 
 ## Setup Instructions
 
-Follow these steps to set up and run the application locally:
-
 ### Prerequisites
+- Node.js installed on your machine.
+- An API key from OpenWeatherMap.
 
-- Node.js installed on your system.
-- A valid API key from OpenWeatherMap. Get your API key [here](https://openweathermap.org/api).
-
-### Steps to Run the Application
-
-1. **Clone the Repository**:
+### Installation
+1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone <repository_url>
+   cd <repository_directory>
    ```
-
-2. **Install Dependencies**:
+2. Install dependencies:
    ```bash
    npm install
    ```
+3. Create a `.env` file in the root directory and add the following variables:
+   ```env
+   NEXT_PUBLIC_OPENWEATHER_API_KEY=331274d7de0e7284ba83f54e728a9057
+   NEXT_PUBLIC_JSON_SERVER_URL=http://localhost:5000
+   ```
+4. Start the JSON server:
+   ```bash
+   npx json-server --watch db.json --port 5000
+   ```
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-3. **Set Up Environment Variables**:
-   - Create a `.env` file in the root of your project.
-   - Add the following variables to the `.env` file:
-     ```env
-     NEXT_PUBLIC_OPENWEATHER_API_KEY=your_openweather_api_key
-     NEXT_PUBLIC_JSON_SERVER_URL=http://localhost:5000
-     ```
-   - Replace `your_openweather_api_key` with your actual API key.
+### Obtaining an OpenWeatherMap API Key
+1. Visit [OpenWeatherMap](https://openweathermap.org/) and sign up or log in.
+2. Navigate to the API section and generate a new API key.
+3. Replace the placeholder API key in the `.env` file with your own key.
 
-4. **Start the JSON Server**:
-   - Run the following command to start the JSON server for storing and managing favorite cities:
-     ```bash
-     npx json-server --watch db.json --port 5000
-     ```
-
-5. **Run the Application**:
-   - Start the development server:
-     ```bash
-     npm run dev
-     ```
-   - Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
-
-## File Structure
-
-```
-project-folder/
-├── public/
-│   └── UI.PNG                # Image of the UI
-├── src/
-│   ├── components/           # React components
-│   ├── pages/                # Next.js pages
-│   └── styles/               # TailwindCSS styles
-├── db.json                   # JSON server data
-├── .env                      # Environment variables
-├── package.json              # Node.js dependencies
-└── README.md                 # Documentation
-```
-
-## API Usage
-
-This project uses the [OpenWeatherMap API](https://openweathermap.org/api) to fetch weather data. Ensure your API key is added to the `.env` file as shown above.
-
-## Commands
-
-- **Start JSON Server**:
-  ```bash
-  npx json-server --watch db.json --port 5000
-  ```
-
-- **Start Development Server**:
-  ```bash
-  npm run dev
-  ```
-
-## Screenshot
-
-Below is a screenshot of the Weather Dashboard:
-
-![Weather Dashboard UI](UI.PNG)
-
-## License
-
-This project is licensed under the MIT License. Feel free to use and modify it as needed.
+## Usage
+- Use the search bar to find the weather details for any city.
+- Click on "Add to Favorites" to save the city to your favorites list.
+- Use the "Remove" button to delete a city from the favorites list.
+- Toggle between Celsius and Fahrenheit using the provided button.
+- The application remembers the last searched city using local storage.
